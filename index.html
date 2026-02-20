@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proposed Her 💝</title>
     <style>
-        * {
+
+    
+                * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -340,7 +342,32 @@
     </style>
 </head>
 <body>
-    <!-- Background Floating Hearts -->
+    <!-- Background Music -->
+    <audio id="bgMusic" loop autoplay>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <!-- Backup source -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Control Button -->
+    <button id="musicBtn" onclick="toggleMusic()" style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(255,255,255,0.9);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        z-index: 1000;
+    ">🎵</button>
+
+
+        <!-- Background Floating Hearts -->
     <div class="bg-hearts" id="bgHearts"></div>
     
     <!-- Celebration Container -->
@@ -482,9 +509,37 @@
         <h1>i know tum mere pyrr me pagal ho😘</h1>
         <div class="big-heart">❤️</div>
     </div>
-
+    
     <script>
-        // Background hearts
+        // Music Control
+        const music = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicBtn.textContent = '🔇';
+            } else {
+                music.play();
+                musicBtn.textContent = '🎵';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Auto-play try karo (browser restrictions ke wajah se kabhi kabhi fail hota hai)
+        window.onload = function() {
+            music.volume = 0.5; // 50% volume
+            music.play().then(() => {
+                isPlaying = true;
+            }).catch(e => {
+                console.log("Auto-play blocked, user interaction needed");
+                musicBtn.textContent = '🔇';
+            });
+        };
+
+        
+          // Background hearts
         function createBgHearts() {
             const container = document.getElementById('bgHearts');
             const hearts = ['💕', '💖', '💗', '💓', '💝'];
