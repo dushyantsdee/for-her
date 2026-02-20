@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposed Her 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5d0d0 0%, #e8b4b4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cute Animated Character */
+        .character {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            position: relative;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .character-face {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .character-ears {
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .ear {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+        }
+
+        .ear.left { left: 20px; }
+        .ear.right { right: 20px; }
+
+        .character-eyes {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 25px;
+        }
+
+        .eye {
+            width: 12px;
+            height: 12px;
+            background: #333;
+            border-radius: 50%;
+            animation: blink 3s infinite;
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+
+        .character-cheeks {
+            position: absolute;
+            top: 65px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 50px;
+        }
+
+        .cheek {
+            width: 15px;
+            height: 10px;
+            background: #ffb6c1;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .character-mouth {
+            position: absolute;
+            top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 10px;
+            border: 3px solid #333;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .heart-float {
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            font-size: 30px;
+            animation: heartFloat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.2); }
+        }
+
+        /* Sad Character */
+        .sad .character-mouth {
+            border: 3px solid #333;
+            border-bottom: none;
+            border-radius: 20px 20px 0 0;
+            top: 80px;
+        }
+
+        .sad .tear {
+            position: absolute;
+            top: 55px;
+            right: 35px;
+            width: 8px;
+            height: 12px;
+            background: #87ceeb;
+            border-radius: 50%;
+            animation: tearDrop 2s infinite;
+        }
+
+        @keyframes tearDrop {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(30px); opacity: 0; }
+        }
+
+        /* Running Character */
+        .running {
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Happy Character */
+        .happy .character-mouth {
+            width: 30px;
+            height: 15px;
+            background: #ff6b6b;
+            border: none;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .happy .heart-float {
+            font-size: 40px;
+            animation: heartBurst 1s ease-in-out infinite;
+        }
+
+        @keyframes heartBurst {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.3) rotate(10deg); }
+        }
+
+        h1 {
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            min-height: 50px;
+        }
+
+        button {
+            padding: 12px 35px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .yes-btn {
+            background: #fff;
+            color: #333;
+        }
+
+        .yes-btn:hover {
+            background: #ff6b6b;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .no-btn {
+            background: #fff;
+            color: #333;
+            position: relative;
+        }
+
+        .no-btn:hover {
+            background: #666;
+            color: white;
+        }
+
+        /* Running button container */
+        .running-container {
+            position: relative;
+            height: 200px;
+            width: 100%;
+        }
+
+        .running-container .no-btn {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.2s ease;
+        }
+
+        /* Background hearts */
+        .bg-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .bg-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Celebration */
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .celebration-heart {
+            position: absolute;
+            font-size: 30px;
+            animation: celebrate 2s ease-out forwards;
+        }
+
+        @keyframes celebrate {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 1;
+            }
+            50% { transform: translateY(-50vh) scale(1.5); }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .big-heart {
+            font-size: 80px;
+            animation: heartbeat 1s ease-in-out infinite;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Floating Hearts -->
+    <div class="bg-hearts" id="bgHearts"></div>
+    
+    <!-- Celebration Container -->
+    <div class="celebration" id="celebration"></div>
+
+    <!-- PAGE 1: Main Question -->
+    <div class="container" id="page1">
+        <div class="character">
+            <div class="character-face">
+                <div class="character-ears">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                </div>
+                <div class="character-eyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="character-cheeks">
+                    <div class="cheek"></div>
+                    <div class="cheek"></div>
+                </div>
+                <div class="character-mouth"></div>
+                <div class="heart-float">💕</div>
+            </div>
+        </div>
+        <h1>jaanu, Do you love me? 🤗</h1>
+        <p>nvm is all yours</p>
+        <div class="buttons">
+            <button class="yes-btn" onclick="goToYes()">Yes</button>
+            <button class="no-btn" onclick="goToPage2()">No</button>
+        </div>
+    </div>
+
+    <!-- PAGE 2: Please Think Again -->
+    <div class="container" id="page2" style="display: none;">
+        <div class="character sad">
+            <div class="character-face">
+                <div class="character-ears">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                </div>
+                <div class="character-eyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="tear"></div>
+                <div class="character-cheeks">
+                    <div class="cheek"></div>
+                    <div class="cheek"></div>
+                </div>
+                <div class="character-mouth"></div>
+            </div>
+        </div>
+        <h1>Please think again! 🙄</h1>
+        <p>Itni jaldi na matt bolo 🙏</p>
+        <div class="buttons">
+            <button class="yes-btn" onclick="goToYes()">Yes</button>
+            <button class="no-btn" onclick="goToPage3()">No</button>
+        </div>
+    </div>
+
+    <!-- PAGE 3: Ek aur baar soch lo -->
+    <div class="container" id="page3" style="display: none;">
+        <div class="character sad running">
+            <div class="character-face">
+                <div class="character-ears">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                </div>
+                <div class="character-eyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="tear"></div>
+                <div class="tear" style="left: 35px; animation-delay: 0.5s;"></div>
+                <div class="character-cheeks">
+                    <div class="cheek"></div>
+                    <div class="cheek"></div>
+                </div>
+                <div class="character-mouth"></div>
+            </div>
+        </div>
+        <h1>Ek aur baar Soch lo! 😣</h1>
+        <p>Kyu aisa kar rahi ho Pls Maan jao 🥺</p>
+        <div class="buttons">
+            <button class="yes-btn" onclick="goToYes()">Yes</button>
+            <button class="no-btn" onclick="goToPage4()">No</button>
+        </div>
+    </div>
+
+    <!-- PAGE 4: Running No Button -->
+    <div class="container" id="page4" style="display: none;">
+        <div class="character sad" style="animation: shake 0.3s infinite;">
+            <div class="character-face">
+                <div class="character-ears">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                </div>
+                <div class="character-eyes">
+                    <div class="eye" style="height: 3px; border-radius: 0;"></div>
+                    <div class="eye" style="height: 3px; border-radius: 0;"></div>
+                </div>
+                <div class="character-cheeks">
+                    <div class="cheek" style="background: #ff6b6b;"></div>
+                    <div class="cheek" style="background: #ff6b6b;"></div>
+                </div>
+                <div class="character-mouth" style="border-radius: 50%; width: 15px; height: 15px; background: #333;"></div>
+            </div>
+        </div>
+        <h1>beautiful pls Man jao na! Kitna code likh waogi 😭</h1>
+        <p>bhut glt baat hai yrr 💔</p>
+        <div class="running-container" id="runningContainer">
+            <button class="yes-btn" onclick="goToYes()" style="position: absolute; left: 30%; top: 50%; transform: translateY(-50%);">Yes</button>
+            <button class="no-btn" id="runningNo" onmouseenter="moveButton()" onclick="moveButton()">No</button>
+        </div>
+    </div>
+
+    <!-- PAGE 5: Final Yes -->
+    <div class="container" id="page5" style="display: none;">
+        <div class="character happy">
+            <div class="character-face">
+                <div class="character-ears">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                </div>
+                <div class="character-eyes">
+                    <div class="eye" style="width: 15px; height: 15px;"></div>
+                    <div class="eye" style="width: 15px; height: 15px;"></div>
+                </div>
+                <div class="character-cheeks">
+                    <div class="cheek" style="width: 20px; height: 15px;"></div>
+                    <div class="cheek" style="width: 20px; height: 15px;"></div>
+                </div>
+                <div class="character-mouth"></div>
+                <div class="heart-float">💖</div>
+                <div class="heart-float" style="left: 10px; animation-delay: 0.5s;">💕</div>
+            </div>
+        </div>
+        <h1>i know tum mere pyrr me pagal ho😘</h1>
+        <div class="big-heart">❤️</div>
+    </div>
+
+    <script>
+        // Background hearts
+        function createBgHearts() {
+            const container = document.getElementById('bgHearts');
+            const hearts = ['💕', '💖', '💗', '💓', '💝'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'bg-heart';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                container.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 8000);
+            }, 500);
+        }
+        createBgHearts();
+
+        function hideAll() {
+            for(let i = 1; i <= 5; i++) {
+                document.getElementById('page' + i).style.display = 'none';
+            }
+        }
+
+        function goToPage2() {
+            hideAll();
+            document.getElementById('page2').style.display = 'block';
+        }
+
+        function goToPage3() {
+            hideAll();
+            document.getElementById('page3').style.display = 'block';
+        }
+
+        function goToPage4() {
+            hideAll();
+            document.getElementById('page4').style.display = 'block';
+        }
+
+        function goToYes() {
+            hideAll();
+            document.getElementById('page5').style.display = 'block';
+            celebrate();
+        }
+
+        // Running button logic
+        function moveButton() {
+            const btn = document.getElementById('runningNo');
+            const container = document.getElementById('runningContainer');
+            const rect = container.getBoundingClientRect();
+            
+            const maxX = rect.width - 80;
+            const maxY = rect.height - 50;
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            btn.style.left = randomX + 'px';
+            btn.style.top = randomY + 'px';
+            btn.style.transform = 'none';
+        }
+
+        // Celebration effect
+        function celebrate() {
+            const container = document.getElementById('celebration');
+            const colors = ['❤️', '💖', '💕', '💗', '💓', '💝', '🎉', '✨'];
+            
+            for(let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const el = document.createElement('div');
+                    el.className = 'celebration-heart';
+                    el.innerHTML = colors[Math.floor(Math.random() * colors.length)];
+                    el.style.left = Math.random() * 100 + '%';
+                    el.style.top = '100%';
+                    el.style.animationDelay = (Math.random() * 0.5) + 's';
+                    container.appendChild(el);
+                    
+                    setTimeout(() => el.remove(), 2000);
+                }, i * 50);
+            }
+        }
+
+        // Mobile touch support
+        document.getElementById('runningNo')?.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+    </script>
+</body>
+</html>
